@@ -1,0 +1,26 @@
+name: Fiery
+main: me.herghost.Fiery.Fiery
+author: Dave@MinecraftClan.com
+website: http://www.minecraftclan.com
+description: Multi use plugin for MinecraftClan.com Servers
+version: 0.1
+
+commands:
+         item:
+               description: Give Items to Yourself
+               permission: Fiery.admin.item
+               usage: /item (id) (amount)
+         give:
+               description: Give Items to Others
+               permission: Fiery.admin.give
+               usage: /give (player) (item) (amount)
+         kick:
+               description: Kick Player
+               permission: Fiery.admin.kick
+               usage: /kick (player) (reason)
+         spawn:
+               description: Return to Spawn
+               permission: Fiery.spawn
+               usage: /spawn
+               
+             
