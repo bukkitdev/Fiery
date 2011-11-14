@@ -1,0 +1,24 @@
+Welcome to bukkitdevs community project!
+
+We are aiming to build an all in one plugin for minecraft with different modules. Please see below at what stage we are at and what needs doing next:
+
+Stage 1 - Base Commands
+//These commands are basic commands found in plugins like essentials
+
+Commands:
+        item - Completed 13/11/2011
+        give - Completed 13/11/2011
+        kick - Completed 13/11/2011
+        spawn - Completed 14/11/2011
+        setspawn -
+        home -              //multiple homes possible?
+        sethome -           //choose home
+        gamemode -
+        op -
+        deop -
+        ban -
+        unban - 
+
+Process:
+        configure database:
+                           mysql - 
