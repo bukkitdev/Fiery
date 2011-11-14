@@ -3,13 +3,14 @@ package me.herghost.Fiery;
 import java.io.File;
 import java.util.logging.Logger;
 
+import me.herghost.Fiery.commands.banCommand;
 import me.herghost.Fiery.commands.giveCommand;
 import me.herghost.Fiery.commands.itemCommand;
 import me.herghost.Fiery.commands.kickCommand;
 import me.herghost.Fiery.commands.spawnCommand;
+import me.herghost.Fiery.commands.unbanCommand;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Fiery extends JavaPlugin {
@@ -21,6 +22,7 @@ public class Fiery extends JavaPlugin {
 	public void onEnable(){ 
 		log.info("Fiery Plugin Enabled");
 		
+		@SuppressWarnings("unused")
 		FileConfiguration config;
 		try
 			{
@@ -43,6 +45,8 @@ public class Fiery extends JavaPlugin {
 		this.getCommand("give").setExecutor(new giveCommand());
 		this.getCommand("kick").setExecutor(new kickCommand());
 		this.getCommand("spawn").setExecutor(new spawnCommand());
+		this.getCommand("ban").setExecutor(new banCommand());
+		this.getCommand("unban").setExecutor(new unbanCommand());
 		
 		
 		
