@@ -21,4 +21,5 @@ Commands:
 
 Process:
         configure database:
-                           mysql - 
+                           mysql -
+	add config.yml - Completed 14/11/2011 
