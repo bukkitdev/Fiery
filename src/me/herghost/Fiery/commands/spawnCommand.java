@@ -9,10 +9,7 @@ import org.bukkit.entity.Player;
 public class spawnCommand implements CommandExecutor
 
 {
-
-   
-
-    @Override
+@Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         if(cmd.getName().equalsIgnoreCase("spawn")&& sender instanceof Player)
