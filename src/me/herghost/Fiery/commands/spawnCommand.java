@@ -20,6 +20,7 @@ public class spawnCommand implements CommandExecutor
             Player player = (Player) sender;
             player.teleport(player.getWorld().getSpawnLocation());
             sender.sendMessage("You have been whisked back to spawn");
+            return true;
         }
         return false;
     }
