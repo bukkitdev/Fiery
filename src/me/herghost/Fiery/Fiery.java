@@ -1,6 +1,7 @@
 package me.herghost.Fiery;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import me.herghost.Fiery.commands.banCommand;
@@ -10,12 +11,23 @@ import me.herghost.Fiery.commands.kickCommand;
 import me.herghost.Fiery.commands.spawnCommand;
 import me.herghost.Fiery.commands.unbanCommand;
 
+import me.herghost.Fiery.functions.sqlFunctions;
+
+
+
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Fiery extends JavaPlugin {
 	
 	Logger log = Logger.getLogger("Minecraft");
+	
+	
+	
+	
+	
+	
+	
 	
 	 
 	
@@ -40,7 +52,19 @@ public class Fiery extends JavaPlugin {
 		
 		
 		
+		try 
+			{
+			    sqlFunctions method = new sqlFunctions();
+	        	method.create_tables(); 
+			} 
 		
+		catch
+			(SQLException e) 
+				{
+	        		e.printStackTrace();
+	        	}
+		
+				
 		this.getCommand("item").setExecutor(new itemCommand());
 		this.getCommand("give").setExecutor(new giveCommand());
 		this.getCommand("kick").setExecutor(new kickCommand());
@@ -51,14 +75,14 @@ public class Fiery extends JavaPlugin {
 		
 		
 		
-		
-		
 	}
 	
 	public void onDisable(){ 
 		
-		log.info("Fiery Plugin Disabled");
+		log.info("Fiery Plugin Disabled - Goodbye!");
 		 
 	}
+	
+	
 
 }
