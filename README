@@ -16,8 +16,8 @@ Commands:
         gamemode -
         op -
         deop -
-        ban -
-        unban - 
+        ban - Completed 14/11/2011
+        unban - Completed 14/11/2011
 
 Process:
         configure database:
