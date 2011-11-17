@@ -22,5 +22,21 @@ commands:
                description: Return to Spawn
                permission: Fiery.spawn
                usage: /spawn
+         ban:
+               description: Ban Player
+               permission: Fiery.admin.ban
+               usage: /ban (player)
+         unban:
+               description: Unban a banned player
+               permission: Fiery.admin.unban
+               usage: /unban (player)
+         sethome:
+               description: Choose upto 3 homes
+               permission: Fiery.sethome
+               usage: /sethome (blank, 1 or 2)
+         home:
+               description: Go Home
+               permission: Fiery.home
+               usage: /home (blank, 1 or 2)
                
              
