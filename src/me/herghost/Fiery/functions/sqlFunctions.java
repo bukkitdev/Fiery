@@ -28,7 +28,7 @@ public class sqlFunctions {
 	public void create_table_userhomes() throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(url, user, pass); 
-		PreparedStatement sampleQueryStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS userhomes (p_name varchar(255), home_x varchar(500), home_y varchar(500), home_z varchar(500), home1_x varchar(500), home1_y varchar(500), home1_z varchar(500), home2_x varchar(500), home2_y varchar(500), home2_z varchar(500))");
+		PreparedStatement sampleQueryStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS userhomes (world varchar(128), p_name varchar(255) not null, home_x varchar(500), home_y varchar(500), home_z varchar(500), world1 varchar(128), home1_x varchar(500), home1_y varchar(500), home1_z varchar(500), world2 varchar(128), home2_x varchar(500), home2_y varchar(500), home2_z varchar(500), primary key(p_name))");
 		sampleQueryStatement.executeUpdate();
 		sampleQueryStatement.close(); 
 		conn.close(); 
