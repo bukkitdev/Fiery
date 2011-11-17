@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import me.herghost.Fiery.commands.banCommand;
 import me.herghost.Fiery.commands.giveCommand;
+import me.herghost.Fiery.commands.homeCommand;
 import me.herghost.Fiery.commands.itemCommand;
 import me.herghost.Fiery.commands.kickCommand;
 import me.herghost.Fiery.commands.sethomeCommand;
@@ -84,6 +85,7 @@ public class Fiery extends JavaPlugin {
 		this.getCommand("ban").setExecutor(new banCommand());
 		this.getCommand("unban").setExecutor(new unbanCommand());
 		this.getCommand("sethome").setExecutor(new sethomeCommand());
+		this.getCommand("home").setExecutor(new homeCommand());
 		
 		
 		PluginManager pm = this.getServer().getPluginManager();
