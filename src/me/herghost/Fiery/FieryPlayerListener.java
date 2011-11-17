@@ -30,6 +30,7 @@ public class FieryPlayerListener extends PlayerListener
 	
 	public void onPlayerJoin(PlayerJoinEvent event)
 	{
+		
 		String thisplayer = event.getPlayer().getName();
 		InetSocketAddress playerip = event.getPlayer().getAddress();
 		
@@ -46,7 +47,10 @@ public class FieryPlayerListener extends PlayerListener
 				conn.close(); 
 				
 			}
-	    } 
+	    }
+		
+		
+		
 	
 	catch
 		(SQLException e1) 
