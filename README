@@ -10,9 +10,9 @@ Commands:
         give - Completed 13/11/2011
         kick - Completed 13/11/2011
         spawn - Completed 14/11/2011
-        setspawn -
-        home -              //multiple homes possible?
-        sethome -           //choose home
+        setspawn - 
+        home -    Completed 17/11/2011 - allows multiple
+        sethome - Completed 17/11/2011 - allows multiple
         gamemode -
         op -
         deop -
