@@ -8,6 +8,7 @@ import me.herghost.Fiery.commands.banCommand;
 import me.herghost.Fiery.commands.giveCommand;
 import me.herghost.Fiery.commands.itemCommand;
 import me.herghost.Fiery.commands.kickCommand;
+import me.herghost.Fiery.commands.sethomeCommand;
 import me.herghost.Fiery.commands.spawnCommand;
 import me.herghost.Fiery.commands.unbanCommand;
 
@@ -27,7 +28,7 @@ public class Fiery extends JavaPlugin {
 	private final FieryPlayerListener playerListener = new FieryPlayerListener(this);	
 	
 	public void onEnable(){ 
-		log.info("Fiery Plugin Enabled");
+		log.info("Fiery Plugin Enabled - Beta");
 		
 		@SuppressWarnings("unused")
 		FileConfiguration config;
@@ -51,8 +52,8 @@ public class Fiery extends JavaPlugin {
 		try 
 			{
 			    sqlFunctions method = new sqlFunctions();
-	        	method.create_tables();
-	        	log.info("Fiery Plugin Database OK!");
+	        	method.create_table_users();
+	        	
 			} 
 		
 		catch
@@ -61,12 +62,28 @@ public class Fiery extends JavaPlugin {
 					e1.printStackTrace();
 	        	}
 		
+		try 
+		{
+		    sqlFunctions method = new sqlFunctions();
+        	method.create_table_userhomes();
+        	
+		} 
+	
+	catch
+		(SQLException e1) 
+			{
+				e1.printStackTrace();
+        	}
+		
+		log.info("Fiery Database Tables OK!");
+		
 		this.getCommand("item").setExecutor(new itemCommand());
 		this.getCommand("give").setExecutor(new giveCommand());
 		this.getCommand("kick").setExecutor(new kickCommand());
 		this.getCommand("spawn").setExecutor(new spawnCommand());
 		this.getCommand("ban").setExecutor(new banCommand());
 		this.getCommand("unban").setExecutor(new unbanCommand());
+		this.getCommand("sethome").setExecutor(new sethomeCommand());
 		
 		
 		PluginManager pm = this.getServer().getPluginManager();
