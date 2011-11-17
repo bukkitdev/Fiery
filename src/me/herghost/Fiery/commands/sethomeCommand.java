@@ -3,11 +3,8 @@ package me.herghost.Fiery.commands;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Logger;
-
-
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -41,10 +38,11 @@ public class sethomeCommand implements CommandExecutor {
 			double x = p.getLocation().getX();
 			double y = p.getLocation().getY();
 			double z = p.getLocation().getZ();
+			String world = p.getWorld().getName();
 			try
 			{
 				Connection conn = DriverManager.getConnection(url, user, pass); 
-				PreparedStatement sampleQueryStatement = conn.prepareStatement("REPLACE INTO userhomes SET p_name = '" + p.getName() + "', home_x = '" + x + "', home_y = '" + y + "', home_z = '" + z + "'"); 
+				PreparedStatement sampleQueryStatement = conn.prepareStatement("REPLACE INTO userhomes SET world = '" + world + "', p_name = '" + p.getName() + "', home_x = '" + x + "', home_y = '" + y + "', home_z = '" + z + "'"); 
 				sampleQueryStatement.executeUpdate(); 
 				sampleQueryStatement.close();
 				p.sendMessage("Home Set Successfully");
@@ -68,10 +66,11 @@ public class sethomeCommand implements CommandExecutor {
 				double x = p.getLocation().getX();
 				double y = p.getLocation().getY();
 				double z = p.getLocation().getZ();
+				String world = p.getWorld().getName();
 				try
 				{
 					Connection conn = DriverManager.getConnection(url, user, pass); 
-					PreparedStatement sampleQueryStatement = conn.prepareStatement("REPLACE INTO userhomes SET p_name ='" + p.getName() +"', home"+args[0]+"_x="+x+",home"+args[0]+"_y ="+y+",home"+args[0]+"_z ="+z+""); 
+					PreparedStatement sampleQueryStatement = conn.prepareStatement("UPDATE userhomes SET p_name ='" + p.getName() +"',world"+args[0]+" ="+world+", home"+args[0]+"_x="+x+",home"+args[0]+"_y ="+y+",home"+args[0]+"_z ="+z+" WHERE p_name = '" + p.getName() + "'"); 
 					sampleQueryStatement.executeUpdate(); 
 					sampleQueryStatement.close();
 					p.sendMessage("Home " + args[0] + " Set Successfully");
