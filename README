@@ -22,5 +22,6 @@ Commands:
 Process:
         configure database:
                            mysql - Connection Made! 15/11/2011
-                           read connection date from config.yml -
+                           
 	add config.yml - Completed 14/11/2011 
+		read connection date from config.yml -
