@@ -1,21 +1,31 @@
 package me.herghost.Fiery.functions;
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import org.bukkit.plugin.Plugin;
 
 
+public class sqlFunctions 
 
-public class sqlFunctions {
+{
+	    private Plugin plugin;
+	    private String user;
+	    private String pass;
+	    private String url;
+		
+		
 	
 	
-	String user = "bukkitdev";
-	String pass = "bukkitdev";
-	String url = "jdbc:mysql://localhost:3306/Fiery"; 
-	
+	public sqlFunctions(Plugin plugin) 
+	{
+	    this.plugin = plugin;
+		this.user = plugin.getConfig().getString("settings.mysql.user");
+	    this.pass = plugin.getConfig().getString("settings.mysql.pass");
+	    this.url = "jdbc:mysql://localhost:3306/Fiery";	
+	}
+
 	public void create_table_users() throws SQLException
 	{ 
 		Connection conn = DriverManager.getConnection(url, user, pass); 
@@ -25,6 +35,8 @@ public class sqlFunctions {
 		conn.close(); 
 	}
 	
+
+
 	public void create_table_userhomes() throws SQLException
 	{
 		Connection conn = DriverManager.getConnection(url, user, pass); 
@@ -34,9 +46,8 @@ public class sqlFunctions {
 		conn.close(); 
 	}
 
-
-	
-	
 	
 
-}
+	
+		
+	}
