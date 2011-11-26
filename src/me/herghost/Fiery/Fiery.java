@@ -9,6 +9,8 @@ import me.herghost.Fiery.commands.giveCommand;
 import me.herghost.Fiery.commands.homeCommand;
 import me.herghost.Fiery.commands.itemCommand;
 import me.herghost.Fiery.commands.kickCommand;
+import me.herghost.Fiery.commands.mopCommand;
+import me.herghost.Fiery.commands.rmopCommand;
 import me.herghost.Fiery.commands.sethomeCommand;
 import me.herghost.Fiery.commands.spawnCommand;
 import me.herghost.Fiery.commands.unbanCommand;
@@ -69,6 +71,8 @@ public class Fiery extends JavaPlugin {
 		this.getCommand("unban").setExecutor(new unbanCommand());
 		this.getCommand("sethome").setExecutor(new sethomeCommand());
 		this.getCommand("home").setExecutor(new homeCommand());
+		this.getCommand("mop").setExecutor(new mopCommand());
+		this.getCommand("rmop").setExecutor(new rmopCommand());
 		
 		
 		//register listeners
