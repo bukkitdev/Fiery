@@ -21,9 +21,9 @@ public class FieryPlayerListener extends PlayerListener
 	
 	public Fiery plugin;
 	
-	public FieryPlayerListener(Fiery instance)
+	public FieryPlayerListener(Fiery plugin)
 	{
-		plugin = instance;
+		this.plugin = plugin;
 	}
 	
 	
