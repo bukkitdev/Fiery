@@ -10,7 +10,6 @@ import org.bukkit.plugin.Plugin;
 public class sqlFunctions 
 
 {
-	    private Plugin plugin;
 	    private String user;
 	    private String pass;
 	    private String url;
@@ -20,8 +19,7 @@ public class sqlFunctions
 	
 	public sqlFunctions(Plugin plugin) 
 	{
-	    this.plugin = plugin;
-		this.user = plugin.getConfig().getString("settings.mysql.user");
+	    this.user = plugin.getConfig().getString("settings.mysql.user");
 	    this.pass = plugin.getConfig().getString("settings.mysql.pass");
 	    this.url = "jdbc:mysql://localhost:3306/Fiery";	
 	}
