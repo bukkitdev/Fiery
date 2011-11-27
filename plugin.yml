@@ -46,5 +46,9 @@ commands:
                description: Un-Op an Player
                permission: Fiery.admin.rmop
                usage: /rmop playername
+         game:
+              description: Change game mode
+              permission: Fiery.admin.game
+              usage: /game (player) (1,0)
                
              
