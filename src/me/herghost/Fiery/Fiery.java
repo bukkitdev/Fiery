@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import me.herghost.Fiery.commands.banCommand;
+import me.herghost.Fiery.commands.gameCommand;
 import me.herghost.Fiery.commands.giveCommand;
 import me.herghost.Fiery.commands.homeCommand;
 import me.herghost.Fiery.commands.itemCommand;
@@ -25,11 +26,14 @@ public class Fiery extends JavaPlugin {
 	
 	Logger log = Logger.getLogger("Minecraft");
 
-	//The Listener
-	private final FieryPlayerListener playerListener = new FieryPlayerListener(this);
+	
 	
 	//Config File
 	public FileConfiguration config;
+	
+	//The Listener
+	private final FieryPlayerListener playerListener = new FieryPlayerListener();
+	
 	
 	//OnEnable Methods
 	public void onEnable(){ 
@@ -73,6 +77,7 @@ public class Fiery extends JavaPlugin {
 		this.getCommand("home").setExecutor(new homeCommand());
 		this.getCommand("mop").setExecutor(new mopCommand());
 		this.getCommand("rmop").setExecutor(new rmopCommand());
+		this.getCommand("game").setExecutor(new gameCommand());
 		
 		
 		//register listeners
