@@ -8,29 +8,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+import me.herghost.Fiery.util.Configuration;
+
+
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerListener;
 
 public class FieryPlayerListener extends PlayerListener 
+ 
 
 {
 	
-	String user = "bukkitdev";
-	String pass = "bukkitdev";
-	String url = "jdbc:mysql://localhost:3306/Fiery"; 
+	public static Fiery plugin;
 	
-	public Fiery plugin;
-	
-	public FieryPlayerListener(Fiery plugin)
+	public FieryPlayerListener(Fiery instance) 
 	{
-		this.plugin = plugin;
+		plugin = instance;
 	}
-	
-	
+
+	private String user;
+	private String pass;
+	private String url;
+    	
+		
 	
 	public void onPlayerJoin(PlayerJoinEvent event)
 	{
-		
+		user = Configuration.getString("settings.mysql.user");
+	    pass = Configuration.getString("settings.mysql.pass");
+		url = "jdbc:mysql://localhost:3306/Fiery";	
 		String thisplayer = event.getPlayer().getName();
 		InetSocketAddress playerip = event.getPlayer().getAddress();
 		
@@ -49,9 +55,6 @@ public class FieryPlayerListener extends PlayerListener
 			}
 	    }
 		
-		
-		
-	
 	catch
 		(SQLException e1) 
 			{

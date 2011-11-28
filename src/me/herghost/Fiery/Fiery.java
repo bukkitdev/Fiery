@@ -2,7 +2,6 @@ package me.herghost.Fiery;
 
 import java.sql.SQLException;
 
-import java.util.logging.Logger;
 
 import me.herghost.Fiery.commands.banCommand;
 import me.herghost.Fiery.commands.gameCommand;
@@ -11,58 +10,53 @@ import me.herghost.Fiery.commands.homeCommand;
 import me.herghost.Fiery.commands.itemCommand;
 import me.herghost.Fiery.commands.kickCommand;
 import me.herghost.Fiery.commands.mopCommand;
+import me.herghost.Fiery.commands.mreloadCommand;
 import me.herghost.Fiery.commands.rmopCommand;
 import me.herghost.Fiery.commands.sethomeCommand;
 import me.herghost.Fiery.commands.spawnCommand;
 import me.herghost.Fiery.commands.unbanCommand;
 import me.herghost.Fiery.functions.sqlFunctions;
+import me.herghost.Fiery.util.Configuration;
+import me.herghost.Fiery.util.Logger;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Fiery extends JavaPlugin {
 	
-	Logger log = Logger.getLogger("Minecraft");
-
+		
+		
+	private static Logger logger;
 	
-	
-	//Config File
-	public FileConfiguration config;
-	
-	//The Listener
-	private final FieryPlayerListener playerListener = new FieryPlayerListener();
-	
+	private final FieryPlayerListener playerListener = new FieryPlayerListener(this);
+		
 	
 	//OnEnable Methods
 	public void onEnable(){ 
 		
-		//Initialize config file
-		loadConfiguration();
-		
-	
+		//Load Config/Strings ETC
+		initialize();
 		
 		//Send Message to Console
-		log.info("Fiery Plugin Enabled - Beta");
+		logger.log("Fiery Plugin Enabled - Beta");
 		
 		
 		
 		//Create Tables
 		try 
 			{
-			    sqlFunctions method = new sqlFunctions(this);
+			    sqlFunctions method = new sqlFunctions();
 			    method.create_table_users();
 	        	method.create_table_userhomes();
-	        	
-	        	log.info("Fiery Database Tables OK!");
+	        	logger.log("Fiery Database Tables OK!");
 	      	 }
 		
 		catch
 			(SQLException e1) 
 				{
 			
-					log.info("Something Fucked Up");
+					logger.log("Something Fucked Up");
 					e1.printStackTrace();
 	        	}
 			
@@ -78,34 +72,38 @@ public class Fiery extends JavaPlugin {
 		this.getCommand("mop").setExecutor(new mopCommand());
 		this.getCommand("rmop").setExecutor(new rmopCommand());
 		this.getCommand("game").setExecutor(new gameCommand());
-		
-		
-		//register listeners
-		PluginManager pm = this.getServer().getPluginManager();
-		pm.registerEvent(Event.Type.PLAYER_JOIN,playerListener, Event.Priority.Normal, this);
+		this.getCommand("mreload").setExecutor(new mreloadCommand());
 	}
 		
 		
+		
+		
 	
 	
-	
-	
-
-
-
 	public void onDisable(){ 
 		
-		log.info("Fiery Plugin Disabled - Goodbye!");
+		logger.log("Fiery Plugin Disabled - Goodbye!");
 		 
 	}
 	
-	public void loadConfiguration() 
-	{
-		config = getConfig();
-		getConfig().addDefault("settings.mysql.user", "mysql username");
-		getConfig().addDefault("settings.mysql.pass", "mysql password");
-		getConfig().options().copyDefaults(true);
-        saveConfig();
-    }
-
+	
+	
+	
+	public static Logger getLogger() {
+		return logger;
+	}
+	
+		
+	public void initialize() {
+		Configuration.initialize();
+		registerEvents();
+		logger = new Logger();
+		
+	}
+	
+	public void registerEvents() {
+		PluginManager pm = getServer().getPluginManager();
+		pm.registerEvent(Event.Type.PLAYER_JOIN,playerListener, Event.Priority.Normal, this);
+		}
 }
+

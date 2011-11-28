@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Logger;
 
+import me.herghost.Fiery.util.Configuration;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -18,13 +20,8 @@ import org.bukkit.entity.Player;
 public class homeCommand implements CommandExecutor {
 	
 	Logger log = Logger.getLogger("Minecraft");
-	
 
-	String user = "bukkitdev";
-	String pass = "bukkitdev";
-	String url = "jdbc:mysql://localhost:3306/Fiery"; 
 
-	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
 		readCommand((Player) sender, commandLabel, args);
 		return true;
@@ -42,6 +39,9 @@ public class homeCommand implements CommandExecutor {
 			
 			try
 			{
+				String user = Configuration.getString("settings.mysql.user");
+				String pass = Configuration.getString("settings.mysql.pass");
+				String url = "jdbc:mysql://localhost:3306/Fiery";
 				Connection conn = DriverManager.getConnection(url, user, pass); 
 				Statement select = conn.createStatement();
 				ResultSet result = select.executeQuery("SELECT world,home_x,home_y,home_z FROM userhomes WHERE p_name = '" + p.getName() + "' LIMIT 1");
@@ -72,6 +72,9 @@ public class homeCommand implements CommandExecutor {
 				
 				try
 				{
+					String user = Configuration.getString("settings.mysql.user");
+					String pass = Configuration.getString("settings.mysql.pass");
+					String url = "jdbc:mysql://localhost:3306/Fiery";
 					Connection conn = DriverManager.getConnection(url, user, pass); 
 					Statement select = conn.createStatement();
 					ResultSet result = select.executeQuery("SELECT world"+args[0]+"," +
