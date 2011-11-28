@@ -18,10 +18,11 @@ Commands:
         deop - Completed 26/11/2011
         ban - Completed 14/11/2011
         unban - Completed 14/11/2011
+	reload - Completed 28/11/2011
 
 Process:
         configure database:
                            mysql - Connection Made! 15/11/2011
                            
 	add config.yml - Completed 14/11/2011 
-		read connection date from config.yml - Completed 26/11/2011
+		read connection date from config.yml - Rewritten and improved 28/11/2011
