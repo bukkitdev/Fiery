@@ -50,5 +50,9 @@ commands:
               description: Change game mode
               permission: Fiery.admin.game
               usage: /game (player) (1,0)
+         mreload:
+              description: Allows non mods to reload server
+              permission: Fiery.admin.mreload
+              usage: /mreload
                
              
