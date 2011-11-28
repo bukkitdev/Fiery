@@ -1,0 +1,4 @@
+settings:
+        mysql:
+             user: bukkitdev
+             pass: bukkitdev
