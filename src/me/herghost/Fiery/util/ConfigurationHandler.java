@@ -74,8 +74,12 @@ public class ConfigurationHandler
     	this.config.options().copyDefaults(value);
     }
     
-    public void addDefault(String path, String value) {
-    	this.config.addDefault(path, value);
+    public void addDefault(String path, String string) {
+    	this.config.addDefault(path, string);
+    }
+    
+    public void addDefault(String path, boolean b) {
+    	this.config.addDefault(path, b);
     }
     
     public void addDefault(String path, int value) {
@@ -221,4 +225,6 @@ public class ConfigurationHandler
 		return this.config.getList(path);
 
 	}
+
+	
 }

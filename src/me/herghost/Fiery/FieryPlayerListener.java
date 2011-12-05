@@ -29,6 +29,7 @@ public class FieryPlayerListener extends PlayerListener
 	private String user;
 	private String pass;
 	private String url;
+	private String startingbalance;
     	
 		
 	
@@ -36,9 +37,12 @@ public class FieryPlayerListener extends PlayerListener
 	{
 		user = Configuration.getString("settings.mysql.user");
 	    pass = Configuration.getString("settings.mysql.pass");
-		url = "jdbc:mysql://localhost:3306/Fiery";	
+		url = "jdbc:mysql://localhost:3306/Fiery";
+		startingbalance = Configuration.getString("money.startingbalance");
+		
 		String thisplayer = event.getPlayer().getName();
 		InetSocketAddress playerip = event.getPlayer().getAddress();
+		
 		
 		try
 		{
@@ -49,7 +53,7 @@ public class FieryPlayerListener extends PlayerListener
 				
 				PreparedStatement sampleQueryStatement = conn.prepareStatement("INSERT INTO users (p_name,p_ip) VALUES ('" + thisplayer + "','" + playerip + "')");
 		        sampleQueryStatement.executeUpdate(); 
-				sampleQueryStatement.close(); 
+				sampleQueryStatement.close();
 				conn.close(); 
 				
 			}
@@ -60,5 +64,28 @@ public class FieryPlayerListener extends PlayerListener
 			{
 				e1.printStackTrace();
         	}
+		
+		try
+		{
+			Connection conn = DriverManager.getConnection(url, user, pass); 
+			ResultSet rs =conn.createStatement().executeQuery("SELECT * FROM money WHERE p_name = '" + thisplayer + "'");
+			if (!rs.next())
+			{
+				
+				PreparedStatement sampleQueryStatement = conn.prepareStatement("INSERT INTO money (p_name,balance) VALUES ('" + thisplayer + "','" + startingbalance + "')");
+		        sampleQueryStatement.executeUpdate(); 
+				sampleQueryStatement.close();
+				conn.close(); 
+				
+			}
+	    }
+		
+	catch
+		(SQLException e1) 
+			{
+				e1.printStackTrace();
+        	}
+			
+		}
 	}
-}
+

@@ -13,7 +13,7 @@ public class mreloadCommand implements CommandExecutor {
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	
 	{
-		if(cmd.getName().equalsIgnoreCase("mreload")&& sender instanceof Player)
+		if(cmd.getName().equalsIgnoreCase("reload")&& sender instanceof Player)
 		{
 			 Bukkit.reload();
 			 sender.sendMessage(ChatColor.GREEN + "Reload complete.");

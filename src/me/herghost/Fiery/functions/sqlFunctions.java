@@ -38,6 +38,21 @@ public class sqlFunctions
 		conn.close(); 
 	}
 
+
+
+	public void create_table_money() throws SQLException 
+	{
+		String user = Configuration.getString("settings.mysql.user");
+		String pass = Configuration.getString("settings.mysql.pass");
+		String url = "jdbc:mysql://localhost:3306/Fiery";
+		Connection conn = DriverManager.getConnection(url, user, pass); 
+		PreparedStatement sampleQueryStatement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS money (p_name varchar(128), balance int)");
+		sampleQueryStatement.executeUpdate();
+		sampleQueryStatement.close(); 
+		conn.close(); 
+		
+	}
+
 	
 
 	

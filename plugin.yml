@@ -18,10 +18,6 @@ commands:
                description: Kick Player
                permission: Fiery.admin.kick
                usage: /kick (player) (reason)
-         spawn:
-               description: Return to Spawn
-               permission: Fiery.spawn
-               usage: /spawn
          ban:
                description: Ban Player
                permission: Fiery.admin.ban
@@ -30,6 +26,27 @@ commands:
                description: Unban a banned player
                permission: Fiery.admin.unban
                usage: /unban (player)
+         op:
+               description: Op an Player
+               permission: Fiery.admin.op
+               usage: /op playername
+         deop:
+               description: Un-Op an Player
+               permission: Fiery.admin.deop
+               usage: /deop playername
+         gamemode:
+              description: Change gamemode
+              permission: Fiery.admin.gamemode
+              usage: /game (player) (1,0)
+         reload:
+              description: Allows non mods to reload server
+              permission: Fiery.admin.reload
+              usage: /reload
+         spawn:
+               description: Return to Spawn
+               permission: Fiery.spawn
+               usage: /spawn
+         
          sethome:
                description: Choose upto 3 homes
                permission: Fiery.sethome
@@ -38,21 +55,10 @@ commands:
                description: Go Home
                permission: Fiery.home
                usage: /home (blank, 1 or 2)
-         mop:
-               description: Op an Player
-               permission: Fiery.admin.mop
-               usage: /mop playername
-         rmop:
-               description: Un-Op an Player
-               permission: Fiery.admin.rmop
-               usage: /rmop playername
-         game:
-              description: Change game mode
-              permission: Fiery.admin.game
-              usage: /game (player) (1,0)
-         mreload:
-              description: Allows non mods to reload server
-              permission: Fiery.admin.mreload
-              usage: /mreload
+         money:
+               description: Shows Balance
+               permission: Fiery.money
+               usage: /money
+         
                
              

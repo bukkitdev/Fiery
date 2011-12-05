@@ -13,7 +13,7 @@ public class rmopCommand implements CommandExecutor {
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	
 	{
-		if(cmd.getName().equalsIgnoreCase("rmop")&& sender instanceof Player)
+		if(cmd.getName().equalsIgnoreCase("noop")&& sender instanceof Player)
 		{
 		           
            Command.broadcastCommandMessage(sender, "de-opping " + args[0]);
