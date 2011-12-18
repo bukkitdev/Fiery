@@ -10,7 +10,6 @@ Commands:
         give - Completed 13/11/2011
         kick - Completed 13/11/2011
         spawn - Completed 14/11/2011
-        setspawn - 
         home -    Completed 17/11/2011 - allows multiple
         sethome - Completed 17/11/2011 - allows multiple
         gamemode - Completed 27/11/2011
@@ -19,6 +18,10 @@ Commands:
         ban - Completed 14/11/2011
         unban - Completed 14/11/2011
 	reload - Completed 28/11/2011
+   	settime - Completed 18/12/2011
+	setspawn
+	teleport
+	
 
 Process:
         configure database:
@@ -32,3 +35,6 @@ Stage 2
 //Getting more advanced!
 
 Money System Implementation
+Implemented for all commands
+
+	money - shows balance - completed 18/12/2011
