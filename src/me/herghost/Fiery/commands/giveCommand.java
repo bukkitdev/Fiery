@@ -75,12 +75,14 @@ public class giveCommand implements CommandExecutor {
 							Statement select0 = conn.createStatement();
 							select0.executeUpdate("UPDATE money SET balance = '" + nbalance + "'WHERE p_name ='" + p.getName() + "'"); 
 							p.sendMessage("You have been charged " + cost + " " + v + " - your new balance is " + nbalance + " " + v + "");
+							return true;
 							
 						}
 					else 
 						
 						{
 							sender.sendMessage("There's no item called " + args[1]);
+							return true;
 						}
 										
 		
@@ -90,6 +92,8 @@ public class giveCommand implements CommandExecutor {
 				sender.sendMessage("Can't find user " + args[0]);
 			}
 								return true;			}
+					
+					
 				
 if (cost < 1)
 					{

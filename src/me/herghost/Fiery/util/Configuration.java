@@ -27,12 +27,18 @@ public class Configuration
 		config.addDefault("money.startingbalance", 50);
 		
 		config.addDefault("commandcharge.ban", 0);
+		config.addDefault("commandcharge.unban", 0);
 		config.addDefault("commandcharge.gamemode", 0);
 		config.addDefault("commandcharge.give", 0);
 		config.addDefault("commandcharge.home", 0);
 		config.addDefault("commandcharge.item", 0);
 		config.addDefault("commandcharge.kick", 0);
 		config.addDefault("commandcharge.op", 0);
+		config.addDefault("commandcharge.deop", 0);
+		config.addDefault("commandcharge.reload", 0);
+		config.addDefault("commandcharge.sethome", 0);
+		config.addDefault("commandcharge.spawn", 0);
+		config.addDefault("commandcharge.settime", 0);
 	}
 	
 	//get mysql user
@@ -78,6 +84,11 @@ public class Configuration
 		int chargeBan = config.getInt("commandcharge.ban");
 		return chargeBan;
 	}
+	public static int chargeUnban(int id, String name)
+	{
+		int chargeUnban = config.getInt("commandcharge.unban");
+		return chargeUnban;
+	}
 	
 	public static int chargeGame(int id, String name)
 	{
@@ -112,6 +123,31 @@ public class Configuration
 	{
 		int chargeOp = config.getInt("commandcharge.op");
 		return chargeOp;
+	}
+	public static int chargeReload(int id, String name)
+	{
+		int chargeReload = config.getInt("commandcharge.reload");
+		return chargeReload;
+	}
+	public static int chargeDeop(int id, String name)
+	{
+		int chargeDeop = config.getInt("commandcharge.deop");
+		return chargeDeop;
+	}
+	public static int chargeSethome(int id, String name)
+	{
+		int chargeSethome = config.getInt("commandcharge.sethome");
+		return chargeSethome;
+	}
+	public static int chargeSpawn(int id, String name)
+	{
+		int chargeSpawn = config.getInt("commandcharge.spawn");
+		return chargeSpawn;
+	}
+	public static int chargesetTime(int id, String name)
+	{
+		int chargesetTime = config.getInt("commandcharge.settime");
+		return chargesetTime;
 	}
 	
 	

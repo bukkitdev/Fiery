@@ -101,6 +101,11 @@ public boolean onCommand(CommandSender sender, Command cmd, String commandLabel,
 						
 								
 					}
+					if(cost > balance)
+					{
+						p.sendMessage("Sorry, your balance is to low to execute this command");
+						return true;
+					}
 					
 					if (t && cost < 1 && args.length == 0)
 						{

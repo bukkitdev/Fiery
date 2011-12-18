@@ -9,7 +9,7 @@ commands:
          item:
                description: Give Items to Yourself
                permission: Fiery.admin.item
-               usage: /item (id) (amount)
+               usage: /item (amount) (item)
          give:
                description: Give Items to Others
                permission: Fiery.admin.give
@@ -38,10 +38,10 @@ commands:
               description: Change gamemode
               permission: Fiery.admin.gamemode
               usage: /game (player) (1,0)
-         reload:
+         doreload:
               description: Allows non mods to reload server
-              permission: Fiery.admin.reload
-              usage: /reload
+              permission: Fiery.admin.doreload
+              usage: /doreload
          spawn:
                description: Return to Spawn
                permission: Fiery.spawn
@@ -59,6 +59,10 @@ commands:
                description: Shows Balance
                permission: Fiery.money
                usage: /money
+         settime:
+              description: Sets Time
+              permission: Fiery.setTime
+              usage: /settime day/night
          
                
              

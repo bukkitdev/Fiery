@@ -11,10 +11,11 @@ import me.herghost.Fiery.commands.itemCommand;
 import me.herghost.Fiery.commands.kickCommand;
 import me.herghost.Fiery.commands.moneyCommand;
 import me.herghost.Fiery.commands.mopCommand;
-//import me.herghost.Fiery.commands.mreloadCommand;
+import me.herghost.Fiery.commands.mreloadCommand;
 import me.herghost.Fiery.commands.rmopCommand;
 import me.herghost.Fiery.commands.sethomeCommand;
 import me.herghost.Fiery.commands.spawnCommand;
+import me.herghost.Fiery.commands.timeCommand;
 import me.herghost.Fiery.commands.unbanCommand;
 import me.herghost.Fiery.functions.sqlFunctions;
 import me.herghost.Fiery.util.Configuration;
@@ -75,8 +76,9 @@ public class Fiery extends JavaPlugin {
 		this.getCommand("op").setExecutor(new mopCommand());
 		this.getCommand("deop").setExecutor(new rmopCommand());
 		this.getCommand("gamemode").setExecutor(new gameCommand());
-		//this.getCommand("reload").setExecutor(new mreloadCommand());
+		this.getCommand("doreload").setExecutor(new mreloadCommand());
 		this.getCommand("money").setExecutor(new moneyCommand());
+		this.getCommand("settime").setExecutor(new timeCommand());
 	}
 		
 		
